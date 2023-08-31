@@ -43,3 +43,15 @@ body {
   align-items: center;
   cursor: pointer;
 }
+
+.championList {
+  background-color: aliceblue;
+  width: 80%;
+  margin: auto;
+  /* display: flex; */
+}
+
+.championBox {
+  background-color: #122235;
+  width: 150px;
+}
