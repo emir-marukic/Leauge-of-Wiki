@@ -5,6 +5,7 @@
 
 body {
   background-color: #122235;
+  font-family: roboto;
 }
 .logo {
   background-image: url(https://wallpapercave.com/wp/wp7834977.png);
@@ -64,6 +65,7 @@ body {
 .championBox p {
   margin-top: 20px;
   color: aliceblue;
+  font-size: 20px;
 }
 
 .championBox:hover {
