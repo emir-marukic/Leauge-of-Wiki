@@ -54,6 +54,15 @@ form {
   font-size: 20px;
 }
 
+.championLink {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* background-color: aliceblue; */
+  align-items: center;
+}
+
 .championBox:hover {
   background-color: #1b3f6b;
   border-radius: 2px;
