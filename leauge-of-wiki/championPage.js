@@ -1,22 +1,35 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const championInfoElement = document.getElementById("champion-info");
-  const championImageElement = document.getElementById("champion-image");
-  const championImage = getQueryParam("image");
+const urlParams = new URLSearchParams(window.location.search);
+const championName = urlParams.get("name");
+const boxImg = document.querySelector(".img-box");
 
-  if (championImage) {
-    // Set the src attribute of the championImageElement to display the champion's image
-    championImageElement.src = championImage;
-    // Make the image visible by removing any "hidden" class or style
-    championImageElement.classList.remove("hidden");
-    // Hide the text element that displays "Champion not found."
-    championInfoElement.textContent = "";
-  } else {
-    // If no champion image is found, display a message
-    championInfoElement.textContent = "Champion image not found.";
-  }
-});
+// const championTitleUrl = urlParams.get("title");
 
-function getQueryParam(name) {
-  const urlSearchParams = new URLSearchParams(window.location.search);
-  return urlSearchParams.get(name);
-}
+// const championTitle = document.createElement("p");
+// championTitle.textContent = championTitleUrl;
+// Display the champion name (optional)
+const championNameElement = document.createElement("p");
+championNameElement.textContent = championName;
+document.body.appendChild(championNameElement);
+console.log(championName);
+// Fetch and display the champion image
+fetch(
+  `http://ddragon.leagueoflegends.com/cdn/13.17.1/img/champion/${championName}.png`
+)
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.blob();
+  })
+  .then((imageBlob) => {
+    const imageURL = URL.createObjectURL(imageBlob);
+    const championImageElement = document.createElement("img");
+    championImageElement.src = imageURL;
+    championImageElement.alt = `${championName} Image`;
+
+    boxImg.appendChild(championImageElement);
+    boxImg.append(championNameElement);
+  })
+  .catch((error) => {
+    console.log("Fetch error", error);
+  });

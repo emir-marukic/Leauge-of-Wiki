@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #122235;
+  font-family: roboto;
+}
+.img-box {
+  /* background-color: aliceblue; */
+  width: 40%;
+  margin-left: 200px;
+  display: flex;
+  margin-top: 200px;
+}
+
+.img-box img {
+  width: 150px;
+  height: 150px;
+}
+.img-box p {
+  margin: 20px 0px 0px 40px;
+  font-size: 30px;
+  color: #fff;
+}
