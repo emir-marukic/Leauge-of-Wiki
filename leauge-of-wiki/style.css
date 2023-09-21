@@ -22,6 +22,9 @@ body {
 form {
   position: relative;
 }
+input {
+  outline: none;
+}
 #searchChampion {
   width: 500px;
   height: 50px;
